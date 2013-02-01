@@ -1,0 +1,28 @@
+shading phong
+light lamp
+      255 255 255
+      125 1000 1000
+ambient 0 127 255
+constants k
+	  0.22 0.61 1
+	  0.21 0.64 1
+	  0.20 0.62 1
+	  127 0 0
+frames 100
+basename orb/orb
+push
+move 250 250 0
+rotate y 360 knobby
+rotate x 360 k2
+scale 2 2 2 bigenator
+sphere k 0 0 0 150
+set knobby 1
+set k2 0
+save_knobs knoblist0
+set knobby 0
+set k2 1
+save_knobs knoblist1
+tween 0 99 knoblist0 knoblist1
+vary bigenator 0 49 0 1
+vary bigenator 50 99 1 0
+

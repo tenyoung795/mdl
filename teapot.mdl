@@ -1,0 +1,16 @@
+shading phong
+light lamp
+      255 255 255
+      125 1000 1000
+ambient 0 127 255
+constants k
+	  0.22 0.61 1
+	  0.21 0.64 1
+	  0.20 0.62 1
+	  127 0 0
+push
+move 250 188 0
+scale 60 60 60
+mesh k :teapot.obj
+display
+save teapot.png

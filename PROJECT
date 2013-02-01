@@ -1,0 +1,119 @@
+
+Building and testing the parser:
+--------------------------------
+1. use "make" to build the project.
+2. "cat test | ./mdl" to run the test script 
+
+NOTE:	"test" is just a script containing "random" commands it
+	doesn't actually draw anything meaningful or even visible
+	on the screen. It's just there to show that the
+	parser works.
+
+What you must do to incorporate your code into the parser:
+----------------------------------------------------------
+1. replace matrix.h and matrix.c with your matrix code. If your matrix
+   code does not use the same naming and calling conventions, you must
+   make the appropriate changes in the parser. You will have to
+   change matrix references in mdl.y, symtab.h and symtab.c.
+
+2. main() is defined in mdl.y. It is defined as follows:
+
+	int main()
+	{
+  		yyparse();
+ 		print_symtab();
+		print_pcode();
+	}
+
+    Print_symtab() and print_pcode() merely print the results of the parse.
+    You will probably want to remove those two calls from your final
+    system. The routine yyparse() runs the parser. It reads the script
+    and fills the symbol table and the global command arry op[]. 
+
+    Rather than add your own code in main, I would recommend making a
+    new driver routine (mymain(), for example) and put it in another
+    file. After calling yyparse(), call your routine.
+
+
+    NOTE: You can access the symbol table and op array as long as you include
+	  symtab.h and parser.h in your files. 
+
+3. Incorporate your existing code into the project by modifying the
+   Makefile.
+
+4. Write the code necessary for the project. Basically, you have to write
+   the code that goes through the op[] array and executes each command.
+
+Explaining the Makefile:
+------------------------
+There are only two lines that are really two commands in the Makefile
+that need explaining.
+
+The first is:	flex -I mdl.l
+
+This command takes the file describing the lexical analyzer, mdl.l,
+and builds the analyzer (which will return tokens one at a time from
+the script file). Flex creates a file lex.yy.c which will then be
+compiled into our project.
+
+The second is: 	bison -d -y mdl.y
+
+This command takes the parser description in mdl.y and builds the
+parser.  It creates two files, y.tab.c and y.tab.h. These contain a
+number of things including #defines, a routine called yyparse() which
+does the actual parse, and in our case, main(). The option "-y" tells
+bison to use yacc's naming convensions (bison is gnus implementation
+of yacc and it has a number of extensions) specifically that the
+output files are called y.tab.h and y.tab.c. The "-d" option tells
+bison to create y.tab.h (in addition to y.tab.c) which contains the
+#defines that are used in both the lexical analyzer and in our code.
+
+The first stage of the project:
+-------------------------------
+Stage one of the project includes implementing the following subset
+of the specification
+
+push
+pop
+
+// -- although you don't have to do anything for this one
+
+move
+scale
+rotate
+
+sphere (without constants and coord_system)
+torus (without constants and coord_system)
+box (without constants and coord_system)
+line (without constants and coord_system)
+
+Your project work in the following way:
+
+1. Read a script file and parse it.
+
+2. Allow for the setting of knob values.
+
+3. Render the image with those knob values.
+
+4. Optionally return to step 2 to set new knob values.
+
+You can also implement the following routines to help with the
+interface:
+
+set
+setknobs
+save
+display
+
+Once you have the basic project implemented, these commands
+can be implemented for animation purposes. They are optional:
+
+basename
+save_knobs
+frames
+vary
+tween
+
+More advanced features will be required for later versions of this
+project. They will be described in class (as will the above animation 
+routines).

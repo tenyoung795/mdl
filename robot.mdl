@@ -1,0 +1,33 @@
+light sun
+      255 255 255
+      125 1000 1000
+ambient 0 127 255
+shading phong
+constants k
+	  0.22 0.61 1
+	  0.21 0.64 1
+	  0.20 0.62 1
+	  127 0 0
+//body
+push
+move 175 350 40
+rotate y 1 body_horiz
+rotate x 1 body_vert
+box k 0 0 0 150 200 80
+//head
+push
+move 75 51 -40
+sphere k 0 0 0 50
+//left arm
+pop
+push
+move -42 0 0
+rotate x 1 left_arm
+box k 0 0 0 40 180 40
+//right arm
+pop
+push
+move 152 0 0
+rotate x 1 right_arm
+box k 0 0 0 40 180 40
+display

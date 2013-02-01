@@ -1,0 +1,135 @@
+shading phong
+frames 261
+basename tetris/tetris
+light lamp 245 245 240 250 400 -50
+ambient 10 10 10
+constants c .1 1 .5 .1 1 .5 .1 1 .5
+push
+move 188 600 0
+move -62 0 0 movex3
+move 0 -603 0 movey3
+rotate y 360 knobby3
+rotate x 360 k22
+rotate z 90 kz2
+constants x .1 .5 .5 .2 .9 .9 .1 .5 .5
+box x 0 0 -200 20 20 20
+box x 22 0 -200 20 20 20
+box x 44 0 -200 20 20 20
+box x 66 0 -200 20 20 20
+vary movex3 133 134 0 1
+vary movey3 123 135 0 .45
+vary movey3 135 141 .45 1
+vary knobby3 0 30 0 .05
+vary k23 0 30 0 .05
+pop
+push
+move 217 600 0
+move 22 0 0 movex2
+move 0 -572 0 movey2
+rotate y 360 knobby2
+rotate x 360 k22
+rotate z 90 kz2
+constants v .1 .5 .5 .2 .2 .2 .1 .9 .9
+box v 0 0 -100 20 20 20
+box v 22 0 -100 20 20 20
+box v 0 22 -100 20 20 20
+box v 0 44 -100 20 20 20
+vary movex2 113 114 0 1
+vary movey2 103 115 0 .45
+vary movey2 115 121 .45 1
+vary knobby2 0 30 0 .05
+vary k22 0 30 0 .05
+pop
+push
+
+move 250 250 0
+rotate y 360 knobby
+rotate x 360 k2
+rotate z 90 kz
+constants b .5 .9 .9 .2 .2 .2 .1 .2 .2
+move 0 -200 0 moves
+move 80 0 0 movex
+scale 2 2 2 bigenator
+box b 0 0 0 100 100 100
+box b 110 0 0 100 100 100
+box b 110 110 0 100 100 100
+box b 110 220 0 100 100 100
+vary knobby 0 30 0 1.05
+vary k2 0 30 0 1.05
+vary bigenator 0 1 0 0.1
+vary movex 30 31 0 .5
+vary movex 35 36 .5 1
+vary movex 46 47 1 .5
+vary moves 23 53 0 .3
+vary moves 53 60 .3 1
+pop
+push
+move 250 600 0
+move 100 0 0 movex1
+move 0 -541 0 movey1
+rotate y 360 knobby1
+rotate x 360 k21
+rotate z 90 kz1
+constants n .5 .8 .8 .2 .2 .2 .4 .8 .9
+scale 2 2 2 bigenator
+box n 0 0 0 100 100 100
+box n 110 0 0 100 100 100
+box n 0 110 0 100 100 100
+box n 110 110 0 100 100 100
+vary movex1 76 77 0 .5
+vary movex1 80 81 .5 1
+vary movey1 63 85 0 .45
+vary movey1 85 91 .45 1
+vary knobby1 0 30 0 .05
+vary k21 0 30 0 .05
+pop
+push
+move 140 600 0
+move -62 0 0 movex4
+move 0 -477 0 movey4
+rotate y 360 knobby4
+rotate x 360 k24
+rotate z 90 kz4
+constants m .1 .2 .2 .7 .8 .9 .4 .8 .9
+box m 0 0 0 20 20 20
+box m 22 0 0 20 20 20
+box m 44 0 0 20 20 20
+box m 66 0 0 20 20 20
+box m 88 0 0 20 20 20
+box m 112 0 0 20 20 20
+box m 134 0 0 20 20 20
+box m 156 0 0 20 20 20
+box m 178 0 0 20 20 20
+box m 200 0 0 20 20 20
+box m 222 0 0 20 20 20
+box m 244 0 0 20 20 20
+box m 266 0 0 20 20 20
+box m 288 0 0 20 20 20
+vary movey4 160 170 0 .4
+vary movey4 170 185 .4 1
+vary knobby4 0 30 0 .05
+vary k24 0 30 0 .05
+pop
+push 
+move -100 200 0
+move 0 200 0 fly
+move 800 0 0 roll
+rotate x 360 rotx
+constants d .1 .2 .2 .4 .1 .2 .4 .8 .9
+sphere d 0 0 0 40
+vary roll 180 260 0 1
+vary fly 180 200 0 .8
+vary fly 200 210 .8 .95
+vary fly 211 220 .95 1
+vary fly 221 230 1 .95
+vary fly 231 240 .95 .8
+vary fly 241 260 .8 0
+vary rotx 188 260 0 1
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+shading phong
+light lamp
+      255 255 255
+      125 1000 1000
+ambient 0 127 255
+constants k
+	  0.008 0.68 0.15
+	  0.009 1 0.14
+	  0.01 0.22 0.13
+	  10 5 2
+push
+move 250 250 0
+scale 0.5 0.5 0.5
+mesh k :turtle.obj
+// http://away3d.googlecode.com/svn/trunk/broomstick/Examples/Away3D/as/src/assets/models/turtle.obj
+display
+save turtle.png
